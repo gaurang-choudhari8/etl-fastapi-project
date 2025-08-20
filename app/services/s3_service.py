@@ -3,8 +3,7 @@ from fastapi import UploadFile
 from botocore.exceptions import ClientError
 from boto3.exceptions import S3UploadFailedError
 class s3_service_class:
-    def __init__(self, bucket_name: str):
-        self.bucket_name = bucket_name
+    def __init__(self):
         #self.__access_key = access_key
         #self.__secret_key = secret_key
         self.s3_client=boto3.client('s3')
@@ -40,3 +39,9 @@ class s3_service_class:
         bucketDict = response['Buckets']
         for bucket in bucketDict:
             pass
+
+    def sayHello(self):
+        return {
+            "status": "Success",
+            "message": "Hello World from the s3 service class"
+        }
